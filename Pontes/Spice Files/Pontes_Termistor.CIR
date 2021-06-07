@@ -1,0 +1,22 @@
+SMALL SAMPLE CIRCUIT
+
+#REVISION: Rev: 135
+V1 1 0 AC 5   SIN 1 1 200 
+R2 1 B  1200  
+R3 D 2  5  
+Rx B 3  1  
+R1 1 D  2000  
+C3 2 0  120n  
+Cx 3 0  2.4u  
+
+* TopSpice Schematic 8.86f   Simulation Setup Commands
+.TRAN 5E-005 0.03
+.STEP LIN R1 23500 24500 100
+.PROBE
+.PRINT TRAN/ALL V(IN) D(IN) D(A) V(OUT)
+
+.OPTION SAVEOPB
+#AUTOPLOT  {V(B) - V(D)}
+
+
+.END
