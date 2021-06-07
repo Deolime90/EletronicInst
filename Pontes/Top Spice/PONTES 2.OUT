@@ -1,0 +1,652 @@
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ INPUT FILE: D:\USU·RIOS\DEYVIDY\GOOGLE DRIVE\PUC\2021.1\INSTRUMENTAÁ„O ELETRÙNICA\RELATÛRIOS\PONTES\PONTES 2.CIR
+ SMALL SAMPLE CIRCUIT                                                            
+                                                                                                                                                      	
+ ****     INPUT LISTING                    TEMPERATURE =   27.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ #REVISION: Rev: 97      
+
+ *START .INC PONTES 2.MIS
+ * Device model  
+ .MODEL NDRV NPN( BF=20 RB=100 TF=0.1ns CJC=2pF) 
+         
+ *END .INC PONTES 2.MIS  
+         
+ V1 1 0 5
+ R2 1 B  2400    
+ R3 D 0  60      
+ R4 B 0  1200    
+ X1 D 1  THERMISTOR      
+         
+ * TopSpice Schematic 8.86f   Simulation Setup Commands  
+ .DC V1 0 5 1    
+ .STEP LIN TEMP 10 60 10 
+ .PROBE  
+ .PRINT TRAN/ALL V(IN) D(IN) D(A) V(OUT) 
+         
+ .OPTION SAVEOPB 
+ #AUTOPLOT  {V(B)-V(D)}  
+
+
+
+ **** Library call definitions ****      
+ *TopSpice library: DEMO 
+ *       
+ .SUBCKT THERMISTOR 1 2  
+ + PARAMS: RNOM=1K    ;R at T=25 deg C   
+ * Thermistor model      
+ * Generate voltage proportional to thermistor resistance vs temperature 
+ * Use Rt/RNOM table supplied by manufacturer - add as many data points as needed
+ ET 3 0  TABLE {TEMP} =  
+ + -40 33.66     
+ + -30 17.70     
+ + -20 9.712     
+ + -10 5.534     
+ +   0 3.266     
+ +  10 1.990     
+ +  20 1.249     
+ +  30 0.8058    
+ +  40 0.5326    
+ +  60 0.2488    
+ +  80 0.1256    
+ + 100 0.06792   
+ + 120 0.03894   
+ + 140 0.02348   
+ + 150 0.01854   
+ RT 3 0 1K       
+ * Voltage dependent resistor    
+ GT 1 2 VALUE = {V(1,2)/RNOM/(V(3)+1m)}  
+ .ENDS THERMISTOR
+         
+         
+ **** End of library call definitions ****       
+         
+ **** Level   2 library call definitions ****    
+ **** End of library call definitions ****       
+         
+ .END    
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     CIRCUIT AND SIMULATION CHECK     TEMPERATURE =   27.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   27.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=10                         
+
+ **** STEP   1 UPDATED PARAMETER TEMP =  10.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   10.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   10.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          6.3827E-18  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  7.7940E-01  0.0000E+00  7.7940E-01  1.9696E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   10.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     1 *****
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   10.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=20                         
+
+ **** STEP   2 UPDATED PARAMETER TEMP =  20.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   20.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   20.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          3.3435E-17  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  7.6216E-01  0.0000E+00  7.6216E-01  1.9875E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   20.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     2 *****
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   20.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=30                         
+
+ **** STEP   3 UPDATED PARAMETER TEMP =  30.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   30.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   30.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          1.5755E-16  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  7.4477E-01  0.0000E+00  7.4477E-01  2.0054E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   30.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     3 *****
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   30.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=40                         
+
+ **** STEP   4 UPDATED PARAMETER TEMP =  40.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   40.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   40.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          6.7451E-16  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  7.2723E-01  0.0000E+00  7.2723E-01  2.0235E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   40.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     4 *****
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   40.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=50                         
+
+ **** STEP   5 UPDATED PARAMETER TEMP =  50.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   50.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   50.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          2.6471E-15  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  7.0955E-01  0.0000E+00  7.0955E-01  2.0417E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   50.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     5 *****
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     STEP UPDATED VALUES              TEMPERATURE =   50.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ **RunInfo: TEMP=60                         
+
+ **** STEP   6 UPDATED PARAMETER TEMP =  60.00000    
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE IN - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE A - NODE SET TO 0
+
+
+*WARNING:  ATTEMPT TO REFERENCE UNDEFINED NODE OUT - NODE SET TO 0
+
+ 
+ 
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     BJT      MODEL PARAMETERS        TEMPERATURE =   60.000 DEG C
+
+ **********************************************DEMO********************
+
+
+ MODEL TYPE DESCRIPTION:  NPN       BJT     
+
+ PARAMS.  NDRV      
+ 
+ LEVEL         1
+ BF         20.00    
+ NF         1.000    
+ BR         1.000    
+ NR         1.000    
+ RB         100.0    
+ TF        1.0000E-10
+ CJC       2.0000E-12
+ IS        1.0000E-16
+ TNOM       27.00    
+ 
+
+
+ ** CIRCUIT CHECKING AND MODELS PROCESSING COMPLETED
+ ** CIRCUIT MATRIX SETUP COMPLETED
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     TEMPERATURE-ADJUSTED VALUES      TEMPERATURE =   60.000 DEG C
+
+ **********************************************DEMO********************
+
+
+
+ **** BJT MODEL PARAMETERS
+
+ NAME            JS          BF          ISE         BR          ISC         VJE         CJE         VJC         CJC
+
+ NDRV          9.5967E-15  2.0000E+01  0.0000E+00  1.0000E+00  0.0000E+00  6.9173E-01  0.0000E+00  6.9173E-01  2.0600E-12
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     ANALYSIS                         TEMPERATURE =   60.000 DEG C
+
+ **********************************************DEMO********************
+
+ ** DC SWEEP START
+ ** DC SWEEP COMPLETED
+
+ ***** END OF RUN FOR PARAMETRIC STEP     6 *****
+
+
+ **RunInfo:                                 
+
+
+
+*******05-JUN-2021*****TopSpice  8.86f   DEMO  *******22:31:25********
+ SMALL SAMPLE CIRCUIT                                                            
+ 
+ ****     PARAMETRIC STEP VALUES           TEMPERATURE =   60.000 DEG C
+
+ **********************************************DEMO********************
+
+ STEP#      TEMP                                                            
+
+     1       10.000    
+     2       20.000    
+     3       30.000    
+     4       40.000    
+     5       50.000    
+     6       60.000    
+Y
+
+
+         JOB CONCLUDED
+
+         Simulation Time          0.11 secs
+
+         TOTAL JOB TIME           0.15 secs
+
+
+
+
+ *******************************************
+
+ Thank you for trying TopSpice 8 DEMO.
+
+ To order the full product version, contact:
+
+     Penzar Development
+     PO Box 900847
+     Palmdale, CA 93590
+     U.S.A.
+
+     Tel: 818-884-2246
+     Email: sales.info@penzar.com
+     Website: penzar.com
+
+ *******************************************
+
+
